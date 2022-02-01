@@ -2,6 +2,36 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+Example component communicating with the Crestron-CH5 library:
+
+```
+
+import {useDigitalState, usePublishDigital} from 'hooks';
+
+export default function ProjectorControls(_props: Props): MixedElement {
+  const screenDownState = useDigitalState('23');
+  const screenUpState = useDigitalState('24');
+
+  const handleDownStateClick = usePublishDigital('23', 1000);
+  const handleUpStateClick = usePublishDigital('24', 1000);
+
+  return (
+    <ButtonWrapper>
+      <Button
+        label="Open"
+        isDisabled={screenUpState}
+        onClick={handleDownStateClick}
+      />
+      <Button
+        label="Retract"
+        isDisabled={screenDownState}
+        onClick={handleUpStateClick}
+      />
+    </ButtonWrapper>
+  );
+}
+```
+
 ## Available Scripts
 
 In the project directory, you can run:

@@ -1,7 +1,7 @@
 {
   "name": "@msalia/crestron-ch5-react",
   "repository": "git://github.com/msalia/crestron-ch5-react.git",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publishConfig": {
     "registry":"https://npm.pkg.github.com"
   },
