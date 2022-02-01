@@ -1,4 +1,4 @@
-# Getting Started with Phase 4 Crestron UI
+# Getting Started with Crestron UI
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
