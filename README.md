@@ -4,8 +4,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Example component communicating with the Crestron-CH5 library:
 
-```
-
+```js
 import {useDigitalState, usePublishDigital} from 'hooks';
 
 export default function ProjectorControls(_props: Props): MixedElement {
