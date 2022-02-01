@@ -29,7 +29,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-If it fails, check @crcomlib:
+If it fails, check @crcomlib config at `@crestron/ch5-crcomlib/node_modules/package.json` and ensure that `"types"` and `"main"` are set to:
 
 `"types": "build_bundles/cjs/@types/index.d.ts", "main": "build_bundles/cjs/cr-com-lib.js",`
 
