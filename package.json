@@ -1,6 +1,10 @@
 {
-  "name": "crestron-ch5-react",
+  "name": "@msalia/crestron-ch5-react",
+  "repository": "git://github.com/msalia/crestron-ch5-react.git",
   "version": "0.1.0",
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com"
+  },
   "dependencies": {
     "@crestron/ch5-crcomlib": "^1.0.0",
     "@crestron/ch5-utilities-cli": "^0.1.47",
