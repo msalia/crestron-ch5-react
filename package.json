@@ -1,8 +1,12 @@
 {
   "name": "@msalia/crestron-ch5-react",
-  "repository": "git://github.com/msalia/crestron-ch5-react.git",
   "version": "0.1.2",
+  "author": "Mukund Salia <msalia>",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/msalia/crestron-ch5-react.git"
+  },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
