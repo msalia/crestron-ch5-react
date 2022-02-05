@@ -1,8 +1,6 @@
 # Getting Started with Crestron UI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-Example component communicating with the Crestron-CH5 library:
+An example React component communicating with the Crestron using the Crestron-CH5 library:
 
 ```js
 import {useDigitalState, usePublishDigital} from 'hooks';
