@@ -62,9 +62,16 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-If it fails, check @crcomlib config at `@crestron/ch5-crcomlib/node_modules/package.json` and ensure that `"types"` and `"main"` are set to:
+If it fails to find the crcomlib package, check @crcomlib config at `@crestron/ch5-crcomlib/node_modules/package.json` and ensure that `"types"` and `"main"` are set properly.
 
-`"types": "build_bundles/cjs/@types/index.d.ts", "main": "build_bundles/cjs/cr-com-lib.js",`
+![package error](./readme-assets/package-not-found.png)
+
+They should be set to:
+
+```json
+"types": "build_bundles/cjs/@types/index.d.ts",
+"main": "build_bundles/cjs/cr-com-lib.js",
+```
 
 ### `yarn build:archive`
 

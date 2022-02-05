@@ -2,8 +2,9 @@
   "name": "@msalia/crestron-ch5-react",
   "repository": "git://github.com/msalia/crestron-ch5-react.git",
   "version": "0.1.2",
+  "license": "MIT",
   "publishConfig": {
-    "registry":"https://npm.pkg.github.com"
+    "registry": "https://npm.pkg.github.com"
   },
   "dependencies": {
     "@crestron/ch5-crcomlib": "^1.0.0",
