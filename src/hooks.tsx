@@ -1,21 +1,27 @@
-// @flow
+import type {
+  TSignalStandardTypeName,
+  TSignalValue,
+} from '@crestron/ch5-crcomlib';
 
 import * as CrComLib from '@crestron/ch5-crcomlib';
 import {useCallback, useEffect, useState} from 'react';
 
 // Generic hook to handle common logic of send and receive
-function useSignalState<T: number | boolean | string>(
-  type: 'boolean' | 'number' | 'string',
+function useSignalState<T extends TSignalValue>(
+  type: TSignalStandardTypeName,
   signalName: string,
   defaultValue: T,
 ): T {
-  const [feedback, setFeedback] = useState<T>(defaultValue);
+  const [feedback, setFeedback] = useState(defaultValue);
 
   useEffect(() => {
     const subscriptionID = CrComLib.subscribeState(
       type,
       signalName,
-      setFeedback,
+      (value: any) => {
+        const typedValue: T = value;
+        setFeedback(typedValue);
+      },
     );
     return () => {
       CrComLib.unsubscribeState(type, signalName, subscriptionID);
@@ -37,7 +43,7 @@ export function useStringState(signalName: string): string {
   return useSignalState<string>('string', signalName, '');
 }
 
-export function usePublishAnalog(signalName: string): (number) => void {
+export function usePublishAnalog(signalName: string): (value: number) => void {
   return useCallback(
     (value: number) => {
       CrComLib.publishEvent('number', signalName, value);
@@ -48,7 +54,7 @@ export function usePublishAnalog(signalName: string): (number) => void {
 
 export function usePublishDigital(
   signalName: string,
-  delay?: number = 200,
+  delay: number = 200,
 ): () => void {
   return useCallback(() => {
     CrComLib.publishEvent('boolean', signalName, true);
@@ -58,7 +64,9 @@ export function usePublishDigital(
   }, [delay, signalName]);
 }
 
-export function usePublishDigitalLatch(signalName: string): (boolean) => void {
+export function usePublishDigitalLatch(
+  signalName: string,
+): (value: boolean) => void {
   return useCallback(
     (value: boolean) => {
       CrComLib.publishEvent('boolean', signalName, value);
@@ -67,7 +75,7 @@ export function usePublishDigitalLatch(signalName: string): (boolean) => void {
   );
 }
 
-export function usePublishString(signalName: string): (string) => void {
+export function usePublishString(signalName: string): (value: string) => void {
   return useCallback(
     (value: string) => {
       CrComLib.publishEvent('string', signalName, value);

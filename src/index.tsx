@@ -1,20 +1,28 @@
-// @flow
-
 // WebXPanel needs to be loaded before CrComLiib file gets loaded!!
 import WebXPanel, {
   isActive,
   getVersion,
   getBuildDate,
-} from '@crestron/ch5-webxpanel/dist/cjs/index.js';
+} from '@crestron/ch5-webxpanel';
 import {Ch5Debug, Ch5Emulator} from '@crestron/ch5-crcomlib';
-import * as CrComLib from '@crestron/ch5-crcomlib/build_bundles/cjs/cr-com-lib';
+import * as CrComLib from '@crestron/ch5-crcomlib';
 
 import React from 'react';
-import ReactDOM from 'react-dom';
+import ReactDOM from 'react-dom/client';
 import 'index.css';
 import App from 'component/app/App';
-import emulator from 'emulator.json';
+import emulator from 'emulator';
 import reportWebVitals from 'reportWebVitals';
+
+declare global {
+  interface Window {
+    CrComLib: any;
+    bridgeReceiveIntegerFromNative: any;
+    bridgeReceiveBooleanFromNative: any;
+    bridgeReceiveStringFromNative: any;
+    bridgeReceiveObjectFromNative: any;
+  }
+}
 
 // We need to ensure that the panel can listen to the controller
 window.CrComLib = CrComLib;
@@ -44,11 +52,13 @@ if (isActive) {
   });
 }
 
-ReactDOM.render(
+const root = ReactDOM.createRoot(
+  document.getElementById('root') as HTMLElement,
+);
+root.render(
   <React.StrictMode>
     <App />
   </React.StrictMode>,
-  document.getElementById('root'),
 );
 
 // If you want to start measuring performance in your app, pass a function
