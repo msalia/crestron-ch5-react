@@ -1,6 +1,6 @@
 {
   "name": "@msalia/crestron-ch5-react",
-  "version": "0.1.2",
+  "version": "0.2.0",
   "author": "Mukund Salia <msalia>",
   "license": "MIT",
   "repository": {
@@ -25,7 +25,6 @@
     "react-dom": "^18.0.0",
     "react-jss": "^10.9.0",
     "react-scripts": "5.0.1",
-    "throttle-debounce": "^3.0.1",
     "typescript": "^4.6.3",
     "web-vitals": "^2.1.4"
   },
