@@ -6,13 +6,14 @@ import WebXPanel, {
 } from '@crestron/ch5-webxpanel';
 import {Ch5Debug, Ch5Emulator} from '@crestron/ch5-crcomlib';
 import * as CrComLib from '@crestron/ch5-crcomlib';
-import {ThemeProvider} from 'react-jss';
+import emulator from 'emulator';
 
 import React from 'react';
+import {ThemeProvider} from 'react-jss';
 import ReactDOM from 'react-dom/client';
 import 'index.css';
 import App from 'component/app/App';
-import emulator from 'emulator';
+import {CrestronConfigs} from 'constants/Constants';
 import reportWebVitals from 'reportWebVitals';
 
 declare global {
@@ -45,12 +46,7 @@ if (isActive) {
   console.log(`WebXPanel version: ${getVersion()}`);
   console.log(`WebXPanel build date: ${getBuildDate()}`);
   console.log(`WebXPanel isActive: ${isActive}`);
-
-  WebXPanel.initialize({
-    host: '192.168.1.1',
-    ipId: '0x0A', // Decimal: 10
-    port: 41794,
-  });
+  WebXPanel.initialize(CrestronConfigs);
 }
 
 const theme = {};
