@@ -13,7 +13,7 @@ import {ThemeProvider} from 'react-jss';
 import ReactDOM from 'react-dom/client';
 import 'index.css';
 import App from 'component/app/App';
-import {CrestronConfigs} from 'constants/Constants';
+import {CrestronConfigs} from 'constants/Configs';
 import reportWebVitals from 'reportWebVitals';
 
 declare global {
