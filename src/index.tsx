@@ -6,6 +6,7 @@ import WebXPanel, {
 } from '@crestron/ch5-webxpanel';
 import {Ch5Debug, Ch5Emulator} from '@crestron/ch5-crcomlib';
 import * as CrComLib from '@crestron/ch5-crcomlib';
+import {ThemeProvider} from 'react-jss';
 
 import React from 'react';
 import ReactDOM from 'react-dom/client';
@@ -52,13 +53,15 @@ if (isActive) {
   });
 }
 
+const theme = {};
+
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
 );
 root.render(
-  <React.StrictMode>
+  <ThemeProvider theme={theme}>
     <App />
-  </React.StrictMode>,
+  </ThemeProvider>,
 );
 
 // If you want to start measuring performance in your app, pass a function
